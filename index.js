@@ -39,6 +39,11 @@ app.get('/todo', (req, res, fields) => {
             rows = JSON.stringify(rows);
             res.send(rows)
         })
+    })
+        app.delete('/todo/:id', (req, res) => {
+            var sql = `DELETE FROM todo WHERE id = ${req.params.id}`;
+            con.query(sql)
+            res.end()
 })
 
 app.listen(3000, function(err){
